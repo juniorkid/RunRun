@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class Showscore : MonoBehaviour {
+
+	public Text m_textScore;
+
+	private float m_score;
+	private float m_count;
+
+	// Use this for initialization
+	void Start () {
+		m_score = 0;
+		m_count = 0;
+		m_textScore.text = "Score : " + m_score.ToString ();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (!gameObject.GetComponent<CreateFloor> ().GetStop ()) {
+			//Debug.Log(Time.deltaTime);
+			m_count += Time.deltaTime;
+			m_score = (int)m_count;
+		}
+		if(m_score < 10)
+			m_textScore.text = "Score : 0000" + m_score.ToString();
+		else if(m_score < 100)
+			m_textScore.text = "Score : 000" + m_score.ToString();
+		else if(m_score < 1000)
+			m_textScore.text = "Score : 00" + m_score.ToString();
+		else if(m_score < 10000)
+			m_textScore.text = "Score : 0" + m_score.ToString();
+		else 
+			m_textScore.text = "Score : " + m_score.ToString();
+	}
+}

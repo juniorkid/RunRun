@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Showscore.cs">
+    <Files>
+      <File FileName="Assets\Script\Showscore.cs" Line="33" Column="33" />
+      <File FileName="Assets\Script\Movement.cs" Line="14" Column="26" />
+      <File FileName="Assets\Script\PlayerDie.cs" Line="13" Column="20" />
+      <File FileName="Assets\Script\BGScroller.cs" Line="24" Column="25" />
+      <File FileName="Assets\Script\CreateFloor.cs" Line="23" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
