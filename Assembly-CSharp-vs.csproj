@@ -47,10 +47,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\BGScroller.cs" />
+     <Compile Include="Assets\Script\Controller.cs" />
      <Compile Include="Assets\Script\CreateFloor.cs" />
-     <Compile Include="Assets\Script\Movement.cs" />
-     <Compile Include="Assets\Script\PlayerDie.cs" />
+     <Compile Include="Assets\Script\Die.cs" />
+     <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Showscore.cs" />
+     <Compile Include="Assets\Script\SpeedUp.cs" />
+     <Compile Include="Assets\Script\Stone.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

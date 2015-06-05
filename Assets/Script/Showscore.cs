@@ -20,7 +20,7 @@ public class Showscore : MonoBehaviour {
 	void Update () {
 		if (!gameObject.GetComponent<CreateFloor> ().GetStop ()) {
 			//Debug.Log(Time.deltaTime);
-			m_count += Time.deltaTime;
+			m_count += Time.deltaTime * gameObject.GetComponent<CreateFloor>().m_allSpeed / 5;
 			m_score = (int)m_count;
 		}
 		if(m_score < 10)
