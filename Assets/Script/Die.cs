@@ -12,6 +12,7 @@ public class Die : MonoBehaviour {
 		SetDieFall (obj);
 	}
 
+	// When Trigger fall floor player will die
 	private void SetDieFall(Collider2D obj){
 		if (obj.name == "Player" ) {
 			obj.GetComponent<Player> ().ChangeStatus ("Die");
@@ -26,6 +27,7 @@ public class Die : MonoBehaviour {
 		SetDieStone (coll);
 	}
 
+	// When collision of stone player will die
 	private void SetDieStone(Collision2D coll){
 		if (coll.gameObject.GetComponent<Player> ().GetStatus() == "Normal" && coll.gameObject.name == "Player" && gameObject.tag == "Stone")
 			coll.gameObject.GetComponent<Player> ().ChangeStatus ("Die");

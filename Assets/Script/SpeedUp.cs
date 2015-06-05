@@ -2,15 +2,10 @@
 using System.Collections;
 
 public class SpeedUp : MonoBehaviour {
-	
 
-	// Update is called once per frame
-	void Update () {
-
-	}
-
+	// Change player to Fire Mode
 	void OnTriggerEnter2D(Collider2D obj) {
-		if (obj.name == "Player") {
+		if (obj.name == "Player" && obj.GetComponent<Player>().GetStatus() != "Fire" && obj.GetComponent<Player>().GetStatus() != "DuringFire") {
 			obj.GetComponent<Player> ().ChangeStatus ("Fire");
 			gameObject.transform.position = new Vector3 (-23f , 0f, 0f);
 		}

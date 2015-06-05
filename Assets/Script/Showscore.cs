@@ -18,11 +18,13 @@ public class Showscore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!gameObject.GetComponent<CreateFloor> ().GetStop ()) {
-			//Debug.Log(Time.deltaTime);
-			m_count += Time.deltaTime * gameObject.GetComponent<CreateFloor>().m_allSpeed / 5;
-			m_score = (int)m_count;
-		}
+
+		// Count score when game don't stop
+		// Increase point follow move speed 
+		m_count += Time.deltaTime * gameObject.GetComponent<CreateFloor>().m_allSpeed / 5;
+		m_score = (int)m_count;
+
+		// Show score
 		if(m_score < 10)
 			m_textScore.text = "Score : 0000" + m_score.ToString();
 		else if(m_score < 100)

@@ -17,9 +17,10 @@ public class Stone : MonoBehaviour {
 	
 	// Update is called once per frame
 
+	// Destroy Stone when player in Fire Mode
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.name == "Player") {
-			if (coll.gameObject.GetComponent<Player> ().GetStatus () == "Fire") {
+			if (coll.gameObject.GetComponent<Player> ().GetStatus () == "Fire" || coll.gameObject.GetComponent<Player> ().GetStatus () == "DuringFire") {
 				m_boomStatus = true;
 			}
 		}

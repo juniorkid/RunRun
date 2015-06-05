@@ -12,29 +12,31 @@ public class BGScroller : MonoBehaviour {
 	private GameObject m_player;
 
 	public Transform m_stopTransform;
-	void Start(){
-	}
 
 	void Update(){
+
+		// Move object backward
 		Vector3 pos = transform.position;
+
+		// Stop object when go to stop point
 		if (pos.x <= -22f) {
 			gameObject.SetActive (false);
 			m_scrollSpeed = 0;
-		} else {
+		} 
+		// Move object backward
+		else {
 			pos.x -= Time.deltaTime * m_scrollSpeed;
 			transform.position = pos;
 		}
 	}
-	
+
+	// Set move speed
 	public void SetSpeed(float speed){
-	//	Debug.Log ("SPEED : " + speed);
 		m_scrollSpeed = speed;
-	//	Debug.Log ("m_scrollSpeed : " + m_scrollSpeed);
 	}
 
+	// Get move speed
 	public float GetSpeed(){
-		//	Debug.Log ("SPEED : " + speed);
 		return m_scrollSpeed ;
-		//	Debug.Log ("m_scrollSpeed : " + m_scrollSpeed);
 	}
 }

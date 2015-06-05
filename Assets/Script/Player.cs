@@ -22,59 +22,20 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 
-		if (Input.GetMouseButtonDown (0) && !m_hasJump) {
-			gameObject.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 1) * m_jump);
-			gameObject.GetComponent<Animator>().SetBool("jump",true);
-		}
-		m_defaultPos = transform.position;
+		Jump ();
 
-		m_defaultPos.x = (-4.58f);
+		SetDefualtPos ();
 
-		transform.position   = m_defaultPos;
-
-		Quaternion rot = transform.rotation;
-
-		if (rot.z != 0) {
-			// Grab the Z euler angle
-			float z = rot.eulerAngles.z;
-		
-			// Change the z angle based on input
-			z =  1.4f;
-		
-			// Recreate the quaternion
-			rot = Quaternion.Euler (0, 0, z);
-		
-			// Feed the Quaternion into our rotation
-			transform.rotation = rot;
-		}
-
-		if (m_playerStatus == "Fire")
-			FireMode ();
-		else if (m_playerStatus == "Normal")
-			NormalMode ();
 	}
 
-	void OnCollisionExit2D(Collision2D obj) {
-		if (m_playerStatus != "Die") {
-			m_hasJump = true;
-			gameObject.GetComponent<Animator> ().SetBool ("jump", true);
-		}
-	}
-
+	// Player jump when enter Floor 's Collision
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (m_playerStatus != "Die") {
 			gameObject.GetComponent<Animator> ().SetBool ("jump", false);
 			m_hasJump = false;
 		}
 	}
-
-	void OnCollisionStay2D(Collision2D coll) {
-		if (m_playerStatus != "Die") {
-			gameObject.GetComponent<Animator> ().SetBool ("jump", false);
-			m_hasJump = false;
-		}
-	}
-
+	
 	public void ChangeStatus(string status){
 			m_playerStatus = status;
 	}
@@ -83,7 +44,7 @@ public class Player : MonoBehaviour {
 		return m_playerStatus;
 	}
 
-	void FireMode(){
+	public void FireMode(){
 		transform.Find ("statusFire").GetComponent<SpriteRenderer>().enabled= true;
 	}
 
@@ -91,4 +52,37 @@ public class Player : MonoBehaviour {
 		transform.Find ("statusFire").GetComponent<SpriteRenderer>().enabled= false;
 	}
 
+	private void Jump (){
+		if (Input.GetMouseButtonDown (0) && !m_hasJump) {
+
+			gameObject.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, 1) * m_jump);
+			gameObject.GetComponent<Animator>().SetBool("jump",true);
+			m_hasJump = true;
+
+		}
+	}
+
+	private void SetDefualtPos(){
+		m_defaultPos = transform.position;
+		
+		m_defaultPos.x = (-4.58f);
+		
+		transform.position   = m_defaultPos;
+		
+		Quaternion rot = transform.rotation;
+		
+		if (rot.z != 0) {
+			// Grab the Z euler angle
+			float z = rot.eulerAngles.z;
+			
+			// Change the z angle based on input
+			z =  1.4f;
+			
+			// Recreate the quaternion
+			rot = Quaternion.Euler (0, 0, z);
+			
+			// Feed the Quaternion into our rotation
+			transform.rotation = rot;
+		}
+	}
 }
